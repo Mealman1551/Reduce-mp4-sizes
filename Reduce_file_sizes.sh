@@ -1,12 +1,12 @@
 #!/bin/bash
 
-read -p "Geef het pad van de MP4-video: " input
-read -p "Geef de naam voor het uitvoerbestand (zonder extensie): " output
+read -p "Insert the path for the mp4: " input
+read -p "Insert the output name for the output mp4 (without extension): " output
 
 ffmpeg -i "$input" -vcodec libx264 -preset slow -crf 28 -acodec aac "${output}.mp4"
 
 if [ $? -eq 0 ]; then
-    echo "Conversie voltooid! Uitvoerbestand: ${output}.mp4"
+    echo "Conversion done! Output: ${output}.mp4"
 else
-    echo "Er is een fout opgetreden tijdens de conversie."
+    echo "there is an error!"
 fi
