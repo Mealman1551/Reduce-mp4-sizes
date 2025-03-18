@@ -1,6 +1,6 @@
-# Reduce file sizes
+# Reduce mp4 sizes
 
-These scripts will reduce file sizes via ffmpeg.
+These scripts will reduce mp4 sizes via ffmpeg.
 
 ## In wich languages are the scripts?
 
@@ -12,12 +12,12 @@ Bash (Shell) and Batch (Windows).
 
 1. Download and install ffmpeg via the script `Install_ffmpeg.bat` and run the script as admin.
 2. If the script is successfully executed FFmpeg is now installed.
-3. Download and run `Reduce_file_sizes.bat` as admin and insert the path of your video.
+3. Download and run `Reduce_mp4_sizes.bat` as admin and insert the path of your video.
 
 ### Linux
 
 1. Make sure FFmpeg is already installed by using your package-manager (For example: `sudo apt install ffmpeg`)
-2. If installed, Download the `Reduce_file_sizes.sh` script directly
+2. If installed, Download the `Reduce_mp4_sizes.sh` script directly
 3. do `chmod +x {script path}`
 4. do `sudo ./{script path}`
 
