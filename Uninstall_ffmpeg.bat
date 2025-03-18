@@ -9,21 +9,25 @@ if %errorLevel% neq 0 (
     exit /b
 )
 
-set "FFMPEG_PATH=C:\ffmpeg"
+set "FFMPEG_PATH=C:\Windows"
+set "FFMPEG_FILES=ffmpeg.exe ffplay.exe ffprobe.exe"
 
-if exist "%FFMPEG_PATH%" (
-    rmdir /s /q "%FFMPEG_PATH%"
-    echo FFmpeg directory removed.
-) else (
-    echo FFmpeg directory not found.
+echo Removing FFmpeg files from %FFMPEG_PATH%...
+for %%F in (%FFMPEG_FILES%) do (
+    if exist "%FFMPEG_PATH%\%%F" (
+        del /F /Q "%FFMPEG_PATH%\%%F"
+        echo Deleted: %FFMPEG_PATH%\%%F
+    ) else (
+        echo Not found: %FFMPEG_PATH%\%%F
+    )
 )
 
 for /f "tokens=1,* delims==" %%A in ('reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v Path 2^>nul ^| findstr /I "Path"') do set "OLD_PATH=%%B"
 
-echo %OLD_PATH% | findstr /I "%FFMPEG_PATH%\bin" >nul
+echo %OLD_PATH% | findstr /I "%FFMPEG_PATH%" >nul
 if %errorLevel% == 0 (
     set "NEW_PATH=%OLD_PATH%"
-    set "NEW_PATH=!NEW_PATH:%FFMPEG_PATH%\bin;=!"
+    set "NEW_PATH=!NEW_PATH:%FFMPEG_PATH%;=!"
     setx /M Path "!NEW_PATH!"
     echo FFmpeg removed from PATH.
 ) else (
