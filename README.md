@@ -16,7 +16,7 @@ Bash (Shell) and Batch (Windows).
 
 ### Linux
 
-1. Make sure FFmpeg is already installed by using your package-manager (For example: `sudo apt install ffmpeg`)
+1. Make sure FFmpeg is already installed by using your package-manager (For example: `sudo apt install ffmpeg` (Make sure to use your distro's package manager))
 2. If installed, Download the `Reduce_mp4_sizes.sh` script directly
 3. do `chmod +x {script path}`
 4. do `sudo ./{script path}`
